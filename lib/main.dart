@@ -27,17 +27,31 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: '/home',
-      routes: {
-        '/home': (context) => HomePage(title: S.of(context).youSupership),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/home':
+            return MaterialPageRoute(builder: (context) =>
+                HomePage(
+                  title: S.of(context).youSupership,
+                  arguments: settings.arguments,
+                )
+            );
+        }
+        return null;
       },
     );
   }
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  const HomePage({Key key,
+    @required
+    this.title,
+    this.arguments,
+  }) : super(key: key);
 
   final String title;
+  final Map<String, String> arguments;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -84,6 +98,9 @@ class _HomePageState extends State<HomePage> {
 
   /// 我们海快普货 9元/公斤，特货10元/公斤，时效5~7天左右
   double priceByShipMethod(ShipBy shipBy) {
+    if (widget.arguments?.get('pricePerKg')?.toDoubleOrNull() != null) {
+      return widget.arguments?.get('pricePerKg')?.toDoubleOrNull();
+    }
     switch (shipBy) {
       case ShipBy.seaForSpecial: return 9;
       break;
@@ -315,5 +332,20 @@ extension CeilDoubleX<T extends double> on T {
   double ceilDouble(int places) {
     final mod = pow(10, places);
     return ((this * mod).ceil().toDouble() / mod);
+  }
+}
+
+extension StringX<T extends String> on T {
+  double toDoubleOrNull() => double.tryParse(this);
+  int toIntOrNull() => int.tryParse(this);
+}
+
+extension MapX<K, V> on Map<K, V> {
+  V get(K k) {
+    try {
+      return this[k];
+    } catch (err) {
+      return null;
+    }
   }
 }
