@@ -262,6 +262,36 @@ class S {
       args: [],
     );
   }
+
+  /// `https://shop179633346.taobao.com/`
+  String get yousupership_taobao_url {
+    return Intl.message(
+      'https://shop179633346.taobao.com/',
+      name: 'yousupership_taobao_url',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `https://line.me/R/ti/p/@yangyong_linaijun`
+  String get line_id_url {
+    return Intl.message(
+      'https://line.me/R/ti/p/@yangyong_linaijun',
+      name: 'line_id_url',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `@yangyong_linaijun`
+  String get line_id {
+    return Intl.message(
+      '@yangyong_linaijun',
+      name: 'line_id',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

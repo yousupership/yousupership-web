@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "calculate" : MessageLookupByLibrary.simpleMessage("Calculate"),
     "height" : MessageLookupByLibrary.simpleMessage("Height"),
     "length" : MessageLookupByLibrary.simpleMessage("Length"),
+    "line_id" : MessageLookupByLibrary.simpleMessage("@yangyong_linaijun"),
+    "line_id_url" : MessageLookupByLibrary.simpleMessage("https://line.me/R/ti/p/@yangyong_linaijun"),
     "price" : MessageLookupByLibrary.simpleMessage("Price"),
     "processingData" : MessageLookupByLibrary.simpleMessage("Processing Data"),
     "shipBy" : MessageLookupByLibrary.simpleMessage("運送方式"),
@@ -47,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "weightKg" : MessageLookupByLibrary.simpleMessage("Weight (kg)"),
     "weightPriceDescription" : m1,
     "width" : MessageLookupByLibrary.simpleMessage("Width"),
-    "youSupership" : MessageLookupByLibrary.simpleMessage("YouSupership")
+    "youSupership" : MessageLookupByLibrary.simpleMessage("YouSupership"),
+    "yousupership_taobao_url" : MessageLookupByLibrary.simpleMessage("https://shop179633346.taobao.com/")
   };
 }

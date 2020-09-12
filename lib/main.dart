@@ -1,7 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'generated/l10n.dart';
 
@@ -150,6 +154,37 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(icon: Image.asset('assets/ic_taobao.png'),
+            onPressed: () {
+              launch(S.of(context).yousupership_taobao_url);
+            },
+          ),
+          IconButton(icon: Image.asset('assets/ic_line.png'),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text(S.of(context).line_id),
+                  content: Column(children: <Widget>[
+                    QrImage(
+                      data: S.of(context).line_id_url,
+                      version: QrVersions.auto,
+                      size: 200.0,
+                    ),
+                  ],),
+                  actions: <Widget>[
+                    FlatButton(
+                      child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },)
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20), child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
