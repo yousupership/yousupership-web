@@ -166,13 +166,6 @@ class _HomePageState extends State<HomePage> {
           DropdownButton<ShipBy>(
             value: _shipBy,
             onChanged: (it) => setState(() => _shipBy = it),
-            /*
-            selectedItemBuilder: (context) {
-              return items.map<Widget>((String item) {
-                return Text(item);
-              }).toList();
-            },
-            */
             items: ShipBy.values.map((it) {
               return DropdownMenuItem<ShipBy>(
                 child: Text(S.of(context).shipDescriptionBy(
@@ -251,17 +244,6 @@ class _HomePageState extends State<HomePage> {
                         },
                       )),
                     ],),
-                  /*
-                  RaisedButton(
-                    onPressed: () {
-                      if (_formKey.currentState.validate()) {
-                        Scaffold.of(context)
-                            .showSnackBar(SnackBar(content: Text(S.of(context).processingData)));
-                      }
-                    },
-                    child: Text(S.of(context).calculate),
-                  )
-                  */
                 ],))
         ],
       )),
