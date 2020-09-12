@@ -42,6 +42,176 @@ class S {
       args: [],
     );
   }
+
+  /// `Weight`
+  String get weight {
+    return Intl.message(
+      'Weight',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Size`
+  String get size {
+    return Intl.message(
+      'Size',
+      name: 'size',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Processing Data`
+  String get processingData {
+    return Intl.message(
+      'Processing Data',
+      name: 'processingData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Height`
+  String get height {
+    return Intl.message(
+      'Height',
+      name: 'height',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Width`
+  String get width {
+    return Intl.message(
+      'Width',
+      name: 'width',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Length`
+  String get length {
+    return Intl.message(
+      'Length',
+      name: 'length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipping`
+  String get shipping {
+    return Intl.message(
+      'Shipping',
+      name: 'shipping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Size (cm)`
+  String get sizeCm {
+    return Intl.message(
+      'Size (cm)',
+      name: 'sizeCm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight (kg)`
+  String get weightKg {
+    return Intl.message(
+      'Weight (kg)',
+      name: 'weightKg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `海快特貨`
+  String get seaExpressForSpecial {
+    return Intl.message(
+      '海快特貨',
+      name: 'seaExpressForSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `空運特貨`
+  String get airlineForSpecial {
+    return Intl.message(
+      '空運特貨',
+      name: 'airlineForSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `空快特貨`
+  String get airlineExpressForSpecial {
+    return Intl.message(
+      '空快特貨',
+      name: 'airlineExpressForSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `海運普貨`
+  String get seaForNormal {
+    return Intl.message(
+      '海運普貨',
+      name: 'seaForNormal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `海快普貨`
+  String get shipBySeaExpress {
+    return Intl.message(
+      '海快普貨',
+      name: 'shipBySeaExpress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `空運普貨`
+  String get shipByAirlineForNormal {
+    return Intl.message(
+      '空運普貨',
+      name: 'shipByAirlineForNormal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `空快普貨`
+  String get shipByAirlineExpressForNormal {
+    return Intl.message(
+      '空快普貨',
+      name: 'shipByAirlineExpressForNormal',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -50,6 +220,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'zh', countryCode: 'TW'),
     ];
   }
 

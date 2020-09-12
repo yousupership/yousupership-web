@@ -1,5 +1,8 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'generated/l10n.dart';
 
@@ -34,32 +37,221 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+enum ShipBy {
+  sea,
+  seaExpress,
+  airline,
+  airlineExpress,
+  seaForSpecial,
+  seaExpressForSpecial,
+  airlineForSpecial,
+  airlineExpressForSpecial,
+}
+
 class _HomePageState extends State<HomePage> {
+  TextEditingController _textController;
+  final _formKey = GlobalKey<FormState>();
+  double _weight;
+  double _height;
+  double _width;
+  double _depth;
+  ShipBy _shipBy;
+
+  //double _selectedPriceUnit = priceBySea;
+
+  @override
+  void initState() {
+    _textController = TextEditingController();
+    _weight = 0;
+    _height = 0;
+    _width = 0;
+    _depth = 0;
+    _shipBy = ShipBy.airlineExpress;
+    super.initState();
+  }
+
+  final volumePerKg = 6000;
+
+  double _volume() => _width * _depth * _height;
+  double _weightInVolume() => _volume() / volumePerKg;
+  /// 大尺寸的货物会按抛算材积；长*宽*高/6000
+  double _maxWeight() => max(_weightInVolume(), _weight);
+  double _price() => _maxWeight() * priceByShipMethod(_shipBy);
+
+  /// 我们海快普货 9元/公斤，特货10元/公斤，时效5~7天左右
+  double priceByShipMethod(ShipBy shipBy) {
+    switch (shipBy) {
+      case ShipBy.seaForSpecial: return 9;
+      break;
+      case ShipBy.seaExpressForSpecial: return 10;
+      break;
+      case ShipBy.airlineForSpecial: return 11;
+      break;
+      case ShipBy.airlineExpressForSpecial: return 12;
+      break;
+      case ShipBy.sea: return 9;
+      break;
+      case ShipBy.seaExpress: return 10;
+      break;
+      case ShipBy.airline: return 10;
+      break;
+      case ShipBy.airlineExpress: return 11;
+      break;
+      default: return 11;
+    }
+  }
+
+  String textByShipMethod(ShipBy shipBy) {
+    switch (shipBy) {
+      case ShipBy.seaForSpecial: return S.of(context).shipByshipBySeaForSpecial;
+      break;
+      case ShipBy.seaExpressForSpecial: return S.of(context).shipByshipBySeaExpressForSpecial;
+      break;
+      case ShipBy.airlineForSpecial: return S.of(context).shipByAirlineForSpecial;
+      break;
+      case ShipBy.airlineExpressForSpecial: return S.of(context).shipByAirlineExpressForSpecial;
+      break;
+      case ShipBy.sea: return S.of(context).shipBySeaForNormal;
+      break;
+      case ShipBy.seaExpress: return S.of(context).shipBySeaExpress;
+      break;
+      case ShipBy.airline: return S.of(context).shipByAirlineForNormal;
+      break;
+      case ShipBy.airlineExpress: return S.of(context).shipByAirlineExpressForNormal;
+      break;
+      default: return ;
+    }
+  }
+
+  MapEntry<int, int> durationByShipMethod(ShipBy shipBy) {
+    switch (shipBy) {
+      case ShipBy.seaForSpecial: return MapEntry(7, 14);
+      break;
+      case ShipBy.seaExpressForSpecial: return MapEntry(5, 7);
+      break;
+      case ShipBy.airlineForSpecial: return MapEntry(2, 3);
+      break;
+      case ShipBy.airlineExpressForSpecial: return MapEntry(1, 2);
+      break;
+      case ShipBy.sea: return MapEntry(7, 14);
+      break;
+      case ShipBy.seaExpress: return MapEntry(5, 7);
+      break;
+      case ShipBy.airline: return MapEntry(2, 3);
+      break;
+      case ShipBy.airlineExpress: return MapEntry(1, 2);
+      break;
+      default: return MapEntry(5, 7);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20), child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+            Text(S.of(context).shipping,
+              style: Theme.of(context).textTheme.headline,
+            ),
+          Column(children: ShipBy.values.map((it) => )
+            Text("我们海快普货 9元/公斤，特货10元/公斤，时效5~7天左右",),
+          ],),
+            Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: S.of(context).weightKg,
+                    ),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      DecimalTextInputFormatter
+                    ],
+                    onChanged: (text) {
+                      _weight = double.tryParse(text) ?? _weight;
+                      setState(() { });
+                    },
+                  ),
+                  Text(
+                    S.of(context).sizeCm,
+                    style: Theme.of(context).textTheme.title,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Flexible(child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: S.of(context).length,
+                        ),
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          DecimalTextInputFormatter
+                        ],
+                        onChanged: (text) {
+                          _width = double.tryParse(text) ?? _width;
+                          setState(() { });
+                        },
+                      )),
+                      Flexible(child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: S.of(context).width,
+                        ),
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          DecimalTextInputFormatter
+                        ],
+                        onChanged: (text) {
+                          _depth = double.tryParse(text) ?? _depth;
+                          setState(() { });
+                        },
+                      )),
+                      Flexible(child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: S.of(context).height,
+                        ),
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          DecimalTextInputFormatter
+                        ],
+                        onChanged: (text) {
+                          _height = double.tryParse(text) ?? _height;
+                          setState(() { });
+                        },
+                      )),
+                    ],),
+                  /*
+                  RaisedButton(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        Scaffold.of(context)
+                            .showSnackBar(SnackBar(content: Text(S.of(context).processingData)));
+                      }
+                    },
+                    child: Text(S.of(context).calculate),
+                  )
+                  */
+                ],))
+          ],
+      )),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 4.0,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Text(
-              "",
-            ),
-            Text("",
-              style: Theme.of(context).textTheme.display1,
-            ),
+            Text(S.of(context).price),
+            Text(_price().toString()),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
-        tooltip: S.of(context).calculate,
-        child: Icon(Icons.functions),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+final decimelRegExp = RegExp(r'\d+(\.(\d+)?)?');
+final DecimalTextInputFormatter = WhitelistingTextInputFormatter(decimelRegExp);

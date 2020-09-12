@@ -21,6 +21,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "calculate" : MessageLookupByLibrary.simpleMessage("Calculate")
+    "airlineExpressForSpecial" : MessageLookupByLibrary.simpleMessage("空快特貨"),
+    "airlineForSpecial" : MessageLookupByLibrary.simpleMessage("空運特貨"),
+    "calculate" : MessageLookupByLibrary.simpleMessage("Calculate"),
+    "height" : MessageLookupByLibrary.simpleMessage("Height"),
+    "length" : MessageLookupByLibrary.simpleMessage("Length"),
+    "price" : MessageLookupByLibrary.simpleMessage("Price"),
+    "processingData" : MessageLookupByLibrary.simpleMessage("Processing Data"),
+    "seaExpressForSpecial" : MessageLookupByLibrary.simpleMessage("海快特貨"),
+    "seaForNormal" : MessageLookupByLibrary.simpleMessage("海運普貨"),
+    "shipByAirlineExpressForNormal" : MessageLookupByLibrary.simpleMessage("空快普貨"),
+    "shipByAirlineForNormal" : MessageLookupByLibrary.simpleMessage("空運普貨"),
+    "shipBySeaExpress" : MessageLookupByLibrary.simpleMessage("海快普貨"),
+    "shipping" : MessageLookupByLibrary.simpleMessage("Shipping"),
+    "size" : MessageLookupByLibrary.simpleMessage("Size"),
+    "sizeCm" : MessageLookupByLibrary.simpleMessage("Size (cm)"),
+    "weight" : MessageLookupByLibrary.simpleMessage("Weight"),
+    "weightKg" : MessageLookupByLibrary.simpleMessage("Weight (kg)"),
+    "width" : MessageLookupByLibrary.simpleMessage("Width")
   };
 }
