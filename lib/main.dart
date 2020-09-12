@@ -273,9 +273,9 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Text(S.of(context).price),
             SizedBox(width: 10,),
-            Text("CN\$${_price().toString()}"),
+            Text("CN\$${_price().ceilDouble(2)}"),
             SizedBox(width: 10,),
-            Text("(${S.of(context).weightPriceDescription(weightPrice(), volumePrice())})"),
+            Text("(${S.of(context).weightPriceDescription(weightPrice().ceilDouble(2), volumePrice().ceilDouble(2))})"),
           ],
         )),
       ),
@@ -288,3 +288,13 @@ class _HomePageState extends State<HomePage> {
 
 final decimelRegExp = RegExp(r'\d+(\.(\d+)?)?');
 final DecimalTextInputFormatter = WhitelistingTextInputFormatter(decimelRegExp);
+
+extension CeilDoubleX<T extends double> on T {
+  /// Ceil double to N decimal places
+  ///
+  /// ceilDouble(0) equivalent to ceilToDouble()
+  double ceilDouble(int places) {
+    final mod = pow(10, places);
+    return ((this * mod).ceil().toDouble() / mod);
+  }
+}

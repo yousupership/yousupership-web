@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "shipBySeaForNormal" : MessageLookupByLibrary.simpleMessage("海運普貨"),
     "shipBySeaForSpecial" : MessageLookupByLibrary.simpleMessage("海運特貨"),
     "shipDescriptionBy" : m0,
+    "shipping" : MessageLookupByLibrary.simpleMessage("運費試算"),
     "size" : MessageLookupByLibrary.simpleMessage("尺寸"),
     "sizeCm" : MessageLookupByLibrary.simpleMessage("尺寸 (cm)"),
     "weight" : MessageLookupByLibrary.simpleMessage("重量"),
