@@ -185,6 +185,7 @@ class _HomePageState extends State<HomePage> {
                   title: Text(S.of(context).yousupership_line_id),
                   content: Column(children: <Widget>[
                   IconButton(
+                    iconSize: 200,
                     icon: QrImage(
                       data: S.of(context).yousupership_line_id_url,
                       version: QrVersions.auto,
