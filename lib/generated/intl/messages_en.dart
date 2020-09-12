@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
 
-  static m1(weightPrice, volumeWeightPrice) => "實際重量費用 CN\$${weightPrice}, 材積重量費用 CN\$${volumeWeightPrice}";
+  static m1(weightPrice, volumeWeightPrice, volumeWeight) => "實際重量費用 CN\$${weightPrice}, 材積重量費用 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {

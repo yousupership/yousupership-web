@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
 
+  static m1(weightPrice, volumeWeightPrice, volumeWeight) => "實際重量費用 CN\$${weightPrice}, 材積重量費用 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "calculate" : MessageLookupByLibrary.simpleMessage("計算"),
@@ -42,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sizeCm" : MessageLookupByLibrary.simpleMessage("尺寸 (cm)"),
     "weight" : MessageLookupByLibrary.simpleMessage("重量"),
     "weightKg" : MessageLookupByLibrary.simpleMessage("重量 (kg)"),
+    "weightPriceDescription" : m1,
     "width" : MessageLookupByLibrary.simpleMessage("寬度"),
     "youSupership" : MessageLookupByLibrary.simpleMessage("永超集運")
   };

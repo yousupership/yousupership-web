@@ -243,13 +243,13 @@ class S {
     );
   }
 
-  /// `實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice}`
-  String weightPriceDescription(Object weightPrice, Object volumeWeightPrice) {
+  /// `實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice} / {volumeWeight}kg`
+  String weightPriceDescription(Object weightPrice, Object volumeWeightPrice, Object volumeWeight) {
     return Intl.message(
-      '實際重量費用 CN\$$weightPrice, 材積重量費用 CN\$$volumeWeightPrice',
+      '實際重量費用 CN\$$weightPrice, 材積重量費用 CN\$$volumeWeightPrice / ${volumeWeight}kg',
       name: 'weightPriceDescription',
       desc: '',
-      args: [weightPrice, volumeWeightPrice],
+      args: [weightPrice, volumeWeightPrice, volumeWeight],
     );
   }
 

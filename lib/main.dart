@@ -275,7 +275,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(width: 10,),
             Text("CN\$${_price().ceilDouble(2)}"),
             SizedBox(width: 10,),
-            Text("(${S.of(context).weightPriceDescription(weightPrice().ceilDouble(2), volumePrice().ceilDouble(2))})"),
+            Text("(${S.of(context).weightPriceDescription(weightPrice().ceilDouble(2), volumePrice().ceilDouble(2), _volumeWeight().ceilDouble(2))})"),
           ],
         )),
       ),

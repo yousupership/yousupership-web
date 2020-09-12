@@ -20,6 +20,6 @@
   "shipBySeaExpressForNormal": "海快普貨",
   "shipBySeaExpressForSpecial": "海快特貨",
   "shipDescriptionBy": "{shipMethod} {shipPrice} 元/公斤，时效 {shipDurationFrom}~{shipDurationTo}天左右",
-  "weightPriceDescription": "實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice}",
+  "weightPriceDescription": "實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice} / {volumeWeight}kg",
   "shipBy": "運送方式"
 }
