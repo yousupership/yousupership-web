@@ -274,20 +274,20 @@ class S {
   }
 
   /// `https://line.me/R/ti/p/@yangyong_linaijun`
-  String get line_id_url {
+  String get yousupership_line_id_url {
     return Intl.message(
       'https://line.me/R/ti/p/@yangyong_linaijun',
-      name: 'line_id_url',
+      name: 'yousupership_line_id_url',
       desc: '',
       args: [],
     );
   }
 
   /// `@yangyong_linaijun`
-  String get line_id {
+  String get yousupership_line_id {
     return Intl.message(
       '@yangyong_linaijun',
-      name: 'line_id',
+      name: 'yousupership_line_id',
       desc: '',
       args: [],
     );

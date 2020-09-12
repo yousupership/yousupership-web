@@ -182,13 +182,17 @@ class _HomePageState extends State<HomePage> {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: Text(S.of(context).line_id),
+                  title: Text(S.of(context).yousupership_line_id),
                   content: Column(children: <Widget>[
-                    QrImage(
-                      data: S.of(context).line_id_url,
+                  IconButton(
+                    icon: QrImage(
+                      data: S.of(context).yousupership_line_id_url,
                       version: QrVersions.auto,
                       size: 200.0,
                     ),
+                    onPressed: () {
+                      launch(S.of(context).yousupership_line_id_url);
+                    },),
                   ],),
                   actions: <Widget>[
                     FlatButton(
