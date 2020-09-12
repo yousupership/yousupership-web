@@ -292,6 +292,16 @@ class S {
       args: [],
     );
   }
+
+  /// `一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算`
+  String get shipPriceDescription {
+    return Intl.message(
+      '一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算',
+      name: 'shipPriceDescription',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
