@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'generated/l10n.dart';
 
@@ -12,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'YouSupership',
+      onGenerateTitle: (context) => S.of(context).youSupership,
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -23,7 +22,10 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'YouSupership'),
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => HomePage(title: S.of(context).youSupership),
+      },
     );
   }
 }
@@ -49,7 +51,6 @@ enum ShipBy {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _textController;
   final _formKey = GlobalKey<FormState>();
   double _weight;
   double _height;
@@ -61,7 +62,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    _textController = TextEditingController();
     _weight = 0;
     _height = 0;
     _width = 0;
@@ -73,9 +73,9 @@ class _HomePageState extends State<HomePage> {
   final volumePerKg = 6000;
 
   double _volume() => _width * _depth * _height;
-  double _weightInVolume() => _volume() / volumePerKg;
+  double _volumeWeight() => _volume() / volumePerKg;
   /// 大尺寸的货物会按抛算材积；长*宽*高/6000
-  double _maxWeight() => max(_weightInVolume(), _weight);
+  double _maxWeight() => max(_volumeWeight(), _weight);
   double _price() => _maxWeight() * priceByShipMethod(_shipBy);
 
   /// 我们海快普货 9元/公斤，特货10元/公斤，时效5~7天左右
@@ -103,9 +103,9 @@ class _HomePageState extends State<HomePage> {
 
   String textByShipMethod(ShipBy shipBy) {
     switch (shipBy) {
-      case ShipBy.seaForSpecial: return S.of(context).shipByshipBySeaForSpecial;
+      case ShipBy.seaForSpecial: return S.of(context).shipBySeaForSpecial;
       break;
-      case ShipBy.seaExpressForSpecial: return S.of(context).shipByshipBySeaExpressForSpecial;
+      case ShipBy.seaExpressForSpecial: return S.of(context).shipBySeaExpressForSpecial;
       break;
       case ShipBy.airlineForSpecial: return S.of(context).shipByAirlineForSpecial;
       break;
@@ -113,13 +113,13 @@ class _HomePageState extends State<HomePage> {
       break;
       case ShipBy.sea: return S.of(context).shipBySeaForNormal;
       break;
-      case ShipBy.seaExpress: return S.of(context).shipBySeaExpress;
+      case ShipBy.seaExpress: return S.of(context).shipBySeaExpressForNormal;
       break;
       case ShipBy.airline: return S.of(context).shipByAirlineForNormal;
       break;
       case ShipBy.airlineExpress: return S.of(context).shipByAirlineExpressForNormal;
       break;
-      default: return ;
+      default: return S.of(context).shipBySeaForNormal;
     }
   }
 
@@ -154,17 +154,40 @@ class _HomePageState extends State<HomePage> {
       body: Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20), child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-            Text(S.of(context).shipping,
-              style: Theme.of(context).textTheme.headline,
-            ),
-          Column(children: ShipBy.values.map((it) => )
-            Text("我们海快普货 9元/公斤，特货10元/公斤，时效5~7天左右",),
-          ],),
-            Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+          Text(S.of(context).shipping,
+            style: Theme.of(context).textTheme.headline,
+          ),
+          SizedBox(height: 20),
+          Text(S.of(context).shipBy,
+            style: Theme.of(context).textTheme.title,
+          ),
+          DropdownButton<ShipBy>(
+            value: _shipBy,
+            onChanged: (it) => setState(() => _shipBy = it),
+            /*
+            selectedItemBuilder: (context) {
+              return items.map<Widget>((String item) {
+                return Text(item);
+              }).toList();
+            },
+            */
+            items: ShipBy.values.map((it) {
+              return DropdownMenuItem<ShipBy>(
+                child: Text(S.of(context).shipDescriptionBy(
+                    textByShipMethod(it),
+                    priceByShipMethod(it),
+                    durationByShipMethod(it).key,
+                    durationByShipMethod(it).value
+                )),
+                value: it,
+              );
+            }).toList(),
+          ),
+          Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: S.of(context).weightKg,
@@ -236,21 +259,27 @@ class _HomePageState extends State<HomePage> {
                   )
                   */
                 ],))
-          ],
+        ],
       )),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 4.0,
-        child: Row(
+        child: Padding(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10), child: Row(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Text(S.of(context).price),
-            Text(_price().toString()),
+            SizedBox(width: 10,),
+            Text("CN\$${_price().toString()}"),
+            SizedBox(width: 10,),
+            Text("(${S.of(context).weightPriceDescription(weightPrice(), volumePrice())})"),
           ],
-        ),
+        )),
       ),
     );
   }
+  
+  double weightPrice() => _weight * priceByShipMethod(_shipBy);
+  double volumePrice() => _volumeWeight() * priceByShipMethod(_shipBy);
 }
 
 final decimelRegExp = RegExp(r'\d+(\.(\d+)?)?');

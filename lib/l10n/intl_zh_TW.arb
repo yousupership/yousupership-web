@@ -1,4 +1,5 @@
 {
+  "youSupership": "永超集運",
   "calculate": "計算",
   "weight": "重量",
   "weightKg": "重量 (kg)",
@@ -15,6 +16,7 @@
   "shipByAirlineExpressForSpecial": "空快特貨",
   "shipBySeaForNormal": "海運普貨",
   "shipBySeaForSpecial": "海運特貨",
+  "shipBySeaExpressForNormal": "海快普貨",
   "shipBySeaExpressForSpecial": "海快特貨",
-  "shipBySeaExpressForNormal": "海快普貨"
+  "shipDescriptionBy": "{shipMethod} {shipPrice} 元/公斤，时效 {shipDurationFrom}~{shipDurationTo}天左右"
 }

@@ -1,4 +1,5 @@
 {
+  "youSupership": "YouSupership",
   "calculate": "Calculate",
   "weight": "Weight",
   "size": "Size",
@@ -16,6 +17,9 @@
   "shipByAirlineExpressForSpecial": "空快特貨",
   "shipBySeaForNormal": "海運普貨",
   "shipBySeaForSpecial": "海運特貨",
-  "shipBySeaExpressForSpecial": "海快特貨",
   "shipBySeaExpressForNormal": "海快普貨",
+  "shipBySeaExpressForSpecial": "海快特貨",
+  "shipDescriptionBy": "{shipMethod} {shipPrice} 元/公斤，时效 {shipDurationFrom}~{shipDurationTo}天左右",
+  "weightPriceDescription": "實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice}",
+  "shipBy": "運送方式"
 }

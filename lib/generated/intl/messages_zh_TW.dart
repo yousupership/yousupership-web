@@ -19,6 +19,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'zh_TW';
 
+  static m0(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "calculate" : MessageLookupByLibrary.simpleMessage("計算"),
@@ -26,10 +28,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "length" : MessageLookupByLibrary.simpleMessage("長度"),
     "price" : MessageLookupByLibrary.simpleMessage("費用"),
     "processingData" : MessageLookupByLibrary.simpleMessage("處理中"),
+    "shipByAirlineExpressForNormal" : MessageLookupByLibrary.simpleMessage("空快普貨"),
+    "shipByAirlineExpressForSpecial" : MessageLookupByLibrary.simpleMessage("空快特貨"),
+    "shipByAirlineForNormal" : MessageLookupByLibrary.simpleMessage("空運普貨"),
+    "shipByAirlineForSpecial" : MessageLookupByLibrary.simpleMessage("空運特貨"),
+    "shipBySeaExpressForNormal" : MessageLookupByLibrary.simpleMessage("海快普貨"),
+    "shipBySeaExpressForSpecial" : MessageLookupByLibrary.simpleMessage("海快特貨"),
+    "shipBySeaForNormal" : MessageLookupByLibrary.simpleMessage("海運普貨"),
+    "shipBySeaForSpecial" : MessageLookupByLibrary.simpleMessage("海運特貨"),
+    "shipDescriptionBy" : m0,
     "size" : MessageLookupByLibrary.simpleMessage("尺寸"),
     "sizeCm" : MessageLookupByLibrary.simpleMessage("尺寸 (cm)"),
     "weight" : MessageLookupByLibrary.simpleMessage("重量"),
     "weightKg" : MessageLookupByLibrary.simpleMessage("重量 (kg)"),
-    "width" : MessageLookupByLibrary.simpleMessage("寬度")
+    "width" : MessageLookupByLibrary.simpleMessage("寬度"),
+    "youSupership" : MessageLookupByLibrary.simpleMessage("永超集運")
   };
 }

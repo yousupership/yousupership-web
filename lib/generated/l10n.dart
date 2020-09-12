@@ -33,6 +33,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `YouSupership`
+  String get youSupership {
+    return Intl.message(
+      'YouSupership',
+      name: 'youSupership',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Calculate`
   String get calculate {
     return Intl.message(
@@ -143,56 +153,6 @@ class S {
     );
   }
 
-  /// `海快特貨`
-  String get seaExpressForSpecial {
-    return Intl.message(
-      '海快特貨',
-      name: 'seaExpressForSpecial',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `空運特貨`
-  String get airlineForSpecial {
-    return Intl.message(
-      '空運特貨',
-      name: 'airlineForSpecial',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `空快特貨`
-  String get airlineExpressForSpecial {
-    return Intl.message(
-      '空快特貨',
-      name: 'airlineExpressForSpecial',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `海運普貨`
-  String get seaForNormal {
-    return Intl.message(
-      '海運普貨',
-      name: 'seaForNormal',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `海快普貨`
-  String get shipBySeaExpress {
-    return Intl.message(
-      '海快普貨',
-      name: 'shipBySeaExpress',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `空運普貨`
   String get shipByAirlineForNormal {
     return Intl.message(
@@ -203,11 +163,101 @@ class S {
     );
   }
 
+  /// `空運特貨`
+  String get shipByAirlineForSpecial {
+    return Intl.message(
+      '空運特貨',
+      name: 'shipByAirlineForSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `空快普貨`
   String get shipByAirlineExpressForNormal {
     return Intl.message(
       '空快普貨',
       name: 'shipByAirlineExpressForNormal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `空快特貨`
+  String get shipByAirlineExpressForSpecial {
+    return Intl.message(
+      '空快特貨',
+      name: 'shipByAirlineExpressForSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `海運普貨`
+  String get shipBySeaForNormal {
+    return Intl.message(
+      '海運普貨',
+      name: 'shipBySeaForNormal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `海運特貨`
+  String get shipBySeaForSpecial {
+    return Intl.message(
+      '海運特貨',
+      name: 'shipBySeaForSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `海快普貨`
+  String get shipBySeaExpressForNormal {
+    return Intl.message(
+      '海快普貨',
+      name: 'shipBySeaExpressForNormal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `海快特貨`
+  String get shipBySeaExpressForSpecial {
+    return Intl.message(
+      '海快特貨',
+      name: 'shipBySeaExpressForSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{shipMethod} {shipPrice} 元/公斤，时效 {shipDurationFrom}~{shipDurationTo}天左右`
+  String shipDescriptionBy(Object shipMethod, Object shipPrice, Object shipDurationFrom, Object shipDurationTo) {
+    return Intl.message(
+      '$shipMethod $shipPrice 元/公斤，时效 $shipDurationFrom~$shipDurationTo天左右',
+      name: 'shipDescriptionBy',
+      desc: '',
+      args: [shipMethod, shipPrice, shipDurationFrom, shipDurationTo],
+    );
+  }
+
+  /// `實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice}`
+  String weightPriceDescription(Object weightPrice, Object volumeWeightPrice) {
+    return Intl.message(
+      '實際重量費用 CN\$$weightPrice, 材積重量費用 CN\$$volumeWeightPrice',
+      name: 'weightPriceDescription',
+      desc: '',
+      args: [weightPrice, volumeWeightPrice],
+    );
+  }
+
+  /// `運送方式`
+  String get shipBy {
+    return Intl.message(
+      '運送方式',
+      name: 'shipBy',
       desc: '',
       args: [],
     );
