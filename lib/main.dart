@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                   ],),
                   actions: <Widget>[
                     FlatButton(
-                      child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+                      child: Text(MaterialLocalizations.of(context).okButtonLabel),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },)
