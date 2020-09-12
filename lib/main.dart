@@ -157,10 +157,12 @@ class _HomePageState extends State<HomePage> {
           Text(S.of(context).shipping,
             style: Theme.of(context).textTheme.headline,
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
+          SizedBox(height: 10),
           Text(S.of(context).shipBy,
             style: Theme.of(context).textTheme.title,
           ),
+          SizedBox(height: 10),
           DropdownButton<ShipBy>(
             value: _shipBy,
             onChanged: (it) => setState(() => _shipBy = it),
@@ -201,10 +203,12 @@ class _HomePageState extends State<HomePage> {
                       setState(() { });
                     },
                   ),
+                  SizedBox(height: 10),
                   Text(
                     S.of(context).sizeCm,
                     style: Theme.of(context).textTheme.title,
                   ),
+                  SizedBox(height: 10),
                   Row(
                     children: <Widget>[
                       Flexible(child: TextFormField(
