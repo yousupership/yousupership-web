@@ -304,7 +304,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 4.0,
-        child: Padding(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10), child: Row(
+        child: Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20), child: Row(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Text(S.of(context).price),
@@ -317,7 +317,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  
+
   double weightPrice() => _weight * priceByShipMethod(_shipBy);
   double volumePrice() => _volumeWeight() * priceByShipMethod(_shipBy);
 }
