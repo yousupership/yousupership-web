@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20), child: Column(
+      body: SingleChildScrollView(child: Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20), child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(S.of(context).shipping,
@@ -305,11 +305,12 @@ class _HomePageState extends State<HomePage> {
                   Text(S.of(context).shipPriceDescription)
                 ],))
         ],
-      )),
+      ))),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 4.0,
-        child: Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20), child: Row(
+        child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal, child: Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20), child: Row(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Text(S.of(context).price),
@@ -318,7 +319,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(width: 10,),
             Text("(${S.of(context).weightPriceDescription(weightPrice().ceilDouble(2), volumePrice().ceilDouble(2), _volumeWeight().ceilDouble(2))})"),
           ],
-        )),
+        ))),
       ),
     );
   }
