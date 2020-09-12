@@ -172,6 +172,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
+          IconButton(icon: Image.asset('assets/ic_aliwangwang.png'),
+            onPressed: () {
+              launch(S.of(context).aliwangwangBy(S.of(context).yousupershipAliwangwangId));
+            },
+          ),
           IconButton(icon: Image.asset('assets/ic_taobao.png'),
             onPressed: () {
               launch(S.of(context).yousupership_taobao_url);
@@ -313,8 +318,8 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.horizontal, child: Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20), child: Row(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Text(S.of(context).price),
-            SizedBox(width: 10,),
+            Text("${S.of(context).price}: "),
+            SizedBox(width: 5,),
             Text("CN\$${_price().ceilDouble(2)}"),
             SizedBox(width: 10,),
             Text("(${S.of(context).weightPriceDescription(weightPrice().ceilDouble(2), volumePrice().ceilDouble(2), _volumeWeight().ceilDouble(2))})"),

@@ -19,9 +19,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'zh_TW';
 
-  static m0(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
+  static m1(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
 
-  static m1(weightPrice, volumeWeightPrice, volumeWeight) => "實際重量費用 CN\$${weightPrice}, 材積重量費用 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
+  static m2(weightPrice, volumeWeightPrice, volumeWeight) => "實際重量費用 CN\$${weightPrice}, 材積重量費用 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -38,13 +38,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "shipBySeaExpressForSpecial" : MessageLookupByLibrary.simpleMessage("海快特貨"),
     "shipBySeaForNormal" : MessageLookupByLibrary.simpleMessage("海運普貨"),
     "shipBySeaForSpecial" : MessageLookupByLibrary.simpleMessage("海運特貨"),
-    "shipDescriptionBy" : m0,
+    "shipDescriptionBy" : m1,
     "shipping" : MessageLookupByLibrary.simpleMessage("運費試算"),
     "size" : MessageLookupByLibrary.simpleMessage("尺寸"),
     "sizeCm" : MessageLookupByLibrary.simpleMessage("尺寸 (cm)"),
     "weight" : MessageLookupByLibrary.simpleMessage("重量"),
     "weightKg" : MessageLookupByLibrary.simpleMessage("重量 (kg)"),
-    "weightPriceDescription" : m1,
+    "weightPriceDescription" : m2,
     "width" : MessageLookupByLibrary.simpleMessage("寬度"),
     "youSupership" : MessageLookupByLibrary.simpleMessage("永超集運")
   };

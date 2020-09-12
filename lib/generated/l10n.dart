@@ -243,10 +243,10 @@ class S {
     );
   }
 
-  /// `實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice} / {volumeWeight}kg`
+  /// `重量費用 CN${weightPrice} 材積費用 CN${volumeWeightPrice} / {volumeWeight}kg`
   String weightPriceDescription(Object weightPrice, Object volumeWeightPrice, Object volumeWeight) {
     return Intl.message(
-      '實際重量費用 CN\$$weightPrice, 材積重量費用 CN\$$volumeWeightPrice / ${volumeWeight}kg',
+      '重量費用 CN\$$weightPrice 材積費用 CN\$$volumeWeightPrice / ${volumeWeight}kg',
       name: 'weightPriceDescription',
       desc: '',
       args: [weightPrice, volumeWeightPrice, volumeWeight],
@@ -298,6 +298,26 @@ class S {
     return Intl.message(
       '一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算',
       name: 'shipPriceDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `https://amos.alicdn.com/getcid.aw?uid={id}&site=cntaobao`
+  String aliwangwangBy(Object id) {
+    return Intl.message(
+      'https://amos.alicdn.com/getcid.aw?uid=$id&site=cntaobao',
+      name: 'aliwangwangBy',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `yangyong_linaijun`
+  String get yousupershipAliwangwangId {
+    return Intl.message(
+      'yangyong_linaijun',
+      name: 'yousupershipAliwangwangId',
       desc: '',
       args: [],
     );

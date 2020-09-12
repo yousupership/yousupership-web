@@ -20,10 +20,12 @@
   "shipBySeaExpressForNormal": "海快普貨",
   "shipBySeaExpressForSpecial": "海快特貨",
   "shipDescriptionBy": "{shipMethod} {shipPrice} 元/公斤，时效 {shipDurationFrom}~{shipDurationTo}天左右",
-  "weightPriceDescription": "實際重量費用 CN${weightPrice}, 材積重量費用 CN${volumeWeightPrice} / {volumeWeight}kg",
+  "weightPriceDescription": "重量費用 CN${weightPrice} 材積費用 CN${volumeWeightPrice} / {volumeWeight}kg",
   "shipBy": "運送方式",
   "yousupership_taobao_url": "https://shop179633346.taobao.com/",
   "yousupership_line_id_url": "https://line.me/R/ti/p/@yangyong_linaijun",
   "yousupership_line_id": "@yangyong_linaijun",
-  "shipPriceDescription": "一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算"
+  "shipPriceDescription": "一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算",
+  "aliwangwangBy": "https://amos.alicdn.com/getcid.aw?uid={id}&site=cntaobao",
+  "yousupershipAliwangwangId": "yangyong_linaijun"
 }

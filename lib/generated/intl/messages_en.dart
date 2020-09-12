@@ -19,12 +19,15 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static m0(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
+  static m0(id) => "https://amos.alicdn.com/getcid.aw?uid=${id}&site=cntaobao";
 
-  static m1(weightPrice, volumeWeightPrice, volumeWeight) => "實際重量費用 CN\$${weightPrice}, 材積重量費用 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
+  static m1(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
+
+  static m2(weightPrice, volumeWeightPrice, volumeWeight) => "重量費用 CN\$${weightPrice} 材積費用 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "aliwangwangBy" : m0,
     "calculate" : MessageLookupByLibrary.simpleMessage("Calculate"),
     "height" : MessageLookupByLibrary.simpleMessage("Height"),
     "length" : MessageLookupByLibrary.simpleMessage("Length"),
@@ -39,16 +42,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "shipBySeaExpressForSpecial" : MessageLookupByLibrary.simpleMessage("海快特貨"),
     "shipBySeaForNormal" : MessageLookupByLibrary.simpleMessage("海運普貨"),
     "shipBySeaForSpecial" : MessageLookupByLibrary.simpleMessage("海運特貨"),
-    "shipDescriptionBy" : m0,
+    "shipDescriptionBy" : m1,
     "shipPriceDescription" : MessageLookupByLibrary.simpleMessage("一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算"),
     "shipping" : MessageLookupByLibrary.simpleMessage("Shipping"),
     "size" : MessageLookupByLibrary.simpleMessage("Size"),
     "sizeCm" : MessageLookupByLibrary.simpleMessage("Size (cm)"),
     "weight" : MessageLookupByLibrary.simpleMessage("Weight"),
     "weightKg" : MessageLookupByLibrary.simpleMessage("Weight (kg)"),
-    "weightPriceDescription" : m1,
+    "weightPriceDescription" : m2,
     "width" : MessageLookupByLibrary.simpleMessage("Width"),
     "youSupership" : MessageLookupByLibrary.simpleMessage("YouSupership"),
+    "yousupershipAliwangwangId" : MessageLookupByLibrary.simpleMessage("yangyong_linaijun"),
     "yousupership_line_id" : MessageLookupByLibrary.simpleMessage("@yangyong_linaijun"),
     "yousupership_line_id_url" : MessageLookupByLibrary.simpleMessage("https://line.me/R/ti/p/@yangyong_linaijun"),
     "yousupership_taobao_url" : MessageLookupByLibrary.simpleMessage("https://shop179633346.taobao.com/")
