@@ -22,7 +22,9 @@ class App extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: S.delegate.supportedLocales,
+      supportedLocales: <Locale>[
+        ...S.delegate.supportedLocales
+      ],
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -168,6 +170,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print("locale: ${Localizations.localeOf(context, nullOk: true)}");
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

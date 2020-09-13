@@ -153,40 +153,40 @@ class S {
     );
   }
 
-  /// `空運普貨`
+  /// `Ship by airline for normal`
   String get shipByAirlineForNormal {
     return Intl.message(
-      '空運普貨',
+      'Ship by airline for normal',
       name: 'shipByAirlineForNormal',
       desc: '',
       args: [],
     );
   }
 
-  /// `空運特貨`
+  /// `Ship by airline for special`
   String get shipByAirlineForSpecial {
     return Intl.message(
-      '空運特貨',
+      'Ship by airline for special',
       name: 'shipByAirlineForSpecial',
       desc: '',
       args: [],
     );
   }
 
-  /// `空快普貨`
+  /// `Ship by airline express for normal`
   String get shipByAirlineExpressForNormal {
     return Intl.message(
-      '空快普貨',
+      'Ship by airline express for normal',
       name: 'shipByAirlineExpressForNormal',
       desc: '',
       args: [],
     );
   }
 
-  /// `空快特貨`
+  /// `Ship by airline express for special`
   String get shipByAirlineExpressForSpecial {
     return Intl.message(
-      '空快特貨',
+      'Ship by airline express for special',
       name: 'shipByAirlineExpressForSpecial',
       desc: '',
       args: [],
@@ -330,8 +330,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'zh', countryCode: 'CN'),
-      Locale.fromSubtags(languageCode: 'zh', countryCode: 'TW'),
+      Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN'),
+      Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW'),
     ];
   }
 
