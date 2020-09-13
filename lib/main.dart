@@ -182,6 +182,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
+          IconButton(icon: Image.asset('assets/ic_messenger_dark.png'),
+            onPressed: () {
+              launch(S.of(context).yousupershipMessengerUrl);
+            },
+          ),
           IconButton(icon: Image.asset('assets/ic_aliwangwang.png'),
             onPressed: () {
               launch(S.of(context).aliwangwangBy(S.of(context).yousupershipAliwangwangId));

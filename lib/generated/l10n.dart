@@ -322,6 +322,16 @@ class S {
       args: [],
     );
   }
+
+  /// `https://m.me/100049773130378`
+  String get yousupershipMessengerUrl {
+    return Intl.message(
+      'https://m.me/100049773130378',
+      name: 'yousupershipMessengerUrl',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
