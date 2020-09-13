@@ -2,8 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_device_locale/flutter_device_locale.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,34 +14,42 @@ void main() => runApp(App());
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateTitle: (context) => S.of(context).youSupership,
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: <Locale>[
-        ...S.delegate.supportedLocales
-      ],
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialRoute: '/home',
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case '/home':
-            return MaterialPageRoute(builder: (context) =>
-                HomePage(
-                  title: S.of(context).youSupership,
-                  arguments: settings.arguments,
-                )
-            );
-        }
-        return null;
-      },
-    );
+    return FutureBuilder<List<Locale>>(
+        future: DeviceLocale.getPreferredLocales(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState != ConnectionState.done) {
+            return Container();
+          }
+          final preferredLocales = snapshot.data;
+          return MaterialApp(
+            onGenerateTitle: (context) => S.of(context).youSupership,
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            localeListResolutionCallback: (_, supportedLocales) =>
+                basicLocaleListResolution(preferredLocales, supportedLocales),
+            supportedLocales: S.delegate.supportedLocales,
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            initialRoute: '/home',
+            onGenerateRoute: (settings) {
+              switch (settings.name) {
+                case '/home':
+                  return MaterialPageRoute(builder: (context) =>
+                      HomePage(
+                        title: S.of(context).youSupership,
+                        arguments: settings.arguments,
+                      )
+                  );
+              }
+              return null;
+            },
+          );
+        });
   }
 }
 
@@ -170,7 +178,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print("locale: ${Localizations.localeOf(context, nullOk: true)}");
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -192,16 +199,16 @@ class _HomePageState extends State<HomePage> {
                 builder: (context) => AlertDialog(
                   title: Text(S.of(context).yousupership_line_id),
                   content: Column(children: <Widget>[
-                  IconButton(
-                    iconSize: 200,
-                    icon: QrImage(
-                      data: S.of(context).yousupership_line_id_url,
-                      version: QrVersions.auto,
-                      size: 200.0,
-                    ),
-                    onPressed: () {
-                      launch(S.of(context).yousupership_line_id_url);
-                    },),
+                    IconButton(
+                      iconSize: 200,
+                      icon: QrImage(
+                        data: S.of(context).yousupership_line_id_url,
+                        version: QrVersions.auto,
+                        size: 200.0,
+                      ),
+                      onPressed: () {
+                        launch(S.of(context).yousupership_line_id_url);
+                      },),
                   ],),
                   actions: <Widget>[
                     FlatButton(
