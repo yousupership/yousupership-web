@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "length" : MessageLookupByLibrary.simpleMessage("长度"),
     "price" : MessageLookupByLibrary.simpleMessage("费用"),
     "processingData" : MessageLookupByLibrary.simpleMessage("处理中"),
+    "shipBy" : MessageLookupByLibrary.simpleMessage("运送方式"),
     "shipByAirlineExpressForNormal" : MessageLookupByLibrary.simpleMessage("空快普货"),
     "shipByAirlineExpressForSpecial" : MessageLookupByLibrary.simpleMessage("空快特货"),
     "shipByAirlineForNormal" : MessageLookupByLibrary.simpleMessage("空运普货"),

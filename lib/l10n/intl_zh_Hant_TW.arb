@@ -12,6 +12,7 @@
   "width": "寬度",
   "length": "長度",
   "sizeCm": "尺寸 (cm)",
+  "shipBy": "運送方式",
   "shipByAirlineForNormal": "空運普貨",
   "shipByAirlineForSpecial": "空運特貨",
   "shipByAirlineExpressForNormal": "空快普貨",
@@ -22,5 +23,5 @@
   "shipBySeaExpressForSpecial": "海快特貨",
   "shipDescriptionBy": "{shipMethod} {shipPrice} 元/公斤，時效 {shipDurationFrom}~{shipDurationTo}天左右",
   "weightPriceDescription": "重量計 CN${weightPrice} 材積計 CN${volumeWeightPrice} / {volumeWeight}kg",
-  "shipPriceDescription": "一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算\n\n免費驗貨\n木架 CN$100 起\n電視開機驗貨"
+  "shipPriceDescription": "一般如果尺寸不是很大的，都會按實際重量計算約莫大於1米以上的大貨物，如果材積大於重量的會按材積算\n\n免費驗貨\n木架 CN$100 起\n電視開機驗貨"
 }

@@ -12,6 +12,7 @@
   "width": "宽度",
   "length": "长度",
   "sizeCm": "尺寸 (cm)",
+  "shipBy": "运送方式",
   "shipByAirlineForNormal": "空运普货",
   "shipByAirlineForSpecial": "空运特货",
   "shipByAirlineExpressForNormal": "空快普货",
