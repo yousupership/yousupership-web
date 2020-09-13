@@ -110,15 +110,15 @@ class _HomePageState extends State<HomePage> {
       break;
       case ShipBy.airlineExpressForSpecial: return 12;
       break;
-      case ShipBy.sea: return 9;
+      case ShipBy.sea: return 8;
       break;
-      case ShipBy.seaExpress: return 10;
+      case ShipBy.seaExpress: return 9;
       break;
       case ShipBy.airline: return 10;
       break;
       case ShipBy.airlineExpress: return 11;
       break;
-      default: return 11;
+      default: return 10;
     }
   }
 
