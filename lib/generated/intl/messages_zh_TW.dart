@@ -19,9 +19,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'zh_TW';
 
-  static m1(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
+  static m1(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，時效 ${shipDurationFrom}~${shipDurationTo}天左右";
 
-  static m2(weightPrice, volumeWeightPrice, volumeWeight) => "實際重量費用 CN\$${weightPrice}, 材積重量費用 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
+  static m2(weightPrice, volumeWeightPrice, volumeWeight) => "重量計 CN\$${weightPrice} 材積計 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {

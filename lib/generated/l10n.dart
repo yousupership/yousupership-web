@@ -243,10 +243,10 @@ class S {
     );
   }
 
-  /// `重量費用 CN${weightPrice} 材積費用 CN${volumeWeightPrice} / {volumeWeight}kg`
+  /// `重量計 CN${weightPrice} 材積計 CN${volumeWeightPrice} / {volumeWeight}kg`
   String weightPriceDescription(Object weightPrice, Object volumeWeightPrice, Object volumeWeight) {
     return Intl.message(
-      '重量費用 CN\$$weightPrice 材積費用 CN\$$volumeWeightPrice / ${volumeWeight}kg',
+      '重量計 CN\$$weightPrice 材積計 CN\$$volumeWeightPrice / ${volumeWeight}kg',
       name: 'weightPriceDescription',
       desc: '',
       args: [weightPrice, volumeWeightPrice, volumeWeight],
@@ -330,6 +330,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'zh', countryCode: 'CN'),
       Locale.fromSubtags(languageCode: 'zh', countryCode: 'TW'),
     ];
   }

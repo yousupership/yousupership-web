@@ -20,7 +20,7 @@
   "shipBySeaExpressForNormal": "海快普貨",
   "shipBySeaExpressForSpecial": "海快特貨",
   "shipDescriptionBy": "{shipMethod} {shipPrice} 元/公斤，时效 {shipDurationFrom}~{shipDurationTo}天左右",
-  "weightPriceDescription": "重量費用 CN${weightPrice} 材積費用 CN${volumeWeightPrice} / {volumeWeight}kg",
+  "weightPriceDescription": "重量計 CN${weightPrice} 材積計 CN${volumeWeightPrice} / {volumeWeight}kg",
   "shipBy": "運送方式",
   "yousupership_taobao_url": "https://shop179633346.taobao.com/",
   "yousupership_line_id_url": "https://line.me/R/ti/p/@yangyong_linaijun",
