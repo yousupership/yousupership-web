@@ -273,20 +273,20 @@ class S {
     );
   }
 
-  /// `https://line.me/R/ti/p/@yangyong_linaijun`
+  /// `https://line.me/R/ti/p/@619gndbg`
   String get yousupership_line_id_url {
     return Intl.message(
-      'https://line.me/R/ti/p/@yangyong_linaijun',
+      'https://line.me/R/ti/p/@619gndbg',
       name: 'yousupership_line_id_url',
       desc: '',
       args: [],
     );
   }
 
-  /// `@yangyong_linaijun`
+  /// `@619gndbg`
   String get yousupership_line_id {
     return Intl.message(
-      '@yangyong_linaijun',
+      '@619gndbg',
       name: 'yousupership_line_id',
       desc: '',
       args: [],

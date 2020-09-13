@@ -54,8 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "youSupership" : MessageLookupByLibrary.simpleMessage("YouSupership"),
     "yousupershipAliwangwangId" : MessageLookupByLibrary.simpleMessage("yangyong_linaijun"),
     "yousupershipMessengerUrl" : MessageLookupByLibrary.simpleMessage("https://m.me/100049773130378"),
-    "yousupership_line_id" : MessageLookupByLibrary.simpleMessage("@yangyong_linaijun"),
-    "yousupership_line_id_url" : MessageLookupByLibrary.simpleMessage("https://line.me/R/ti/p/@yangyong_linaijun"),
+    "yousupership_line_id" : MessageLookupByLibrary.simpleMessage("@619gndbg"),
+    "yousupership_line_id_url" : MessageLookupByLibrary.simpleMessage("https://line.me/R/ti/p/@619gndbg"),
     "yousupership_taobao_url" : MessageLookupByLibrary.simpleMessage("https://shop179633346.taobao.com/")
   };
 }
