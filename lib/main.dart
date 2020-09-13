@@ -199,31 +199,7 @@ class _HomePageState extends State<HomePage> {
           ),
           IconButton(icon: Image.asset('assets/ic_line.png'),
             onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(S.of(context).yousupership_line_id),
-                  content: Column(children: <Widget>[
-                    IconButton(
-                      iconSize: 200,
-                      icon: QrImage(
-                        data: S.of(context).yousupership_line_id_url,
-                        version: QrVersions.auto,
-                        size: 200.0,
-                      ),
-                      onPressed: () {
-                        launch(S.of(context).yousupership_line_id_url);
-                      },),
-                  ],),
-                  actions: <Widget>[
-                    FlatButton(
-                      child: Text(MaterialLocalizations.of(context).okButtonLabel),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },)
-                  ],
-                ),
-              );
+              launch(S.of(context).yousupership_line_id_url);
             },
           ),
         ],
