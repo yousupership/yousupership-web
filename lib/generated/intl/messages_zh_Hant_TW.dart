@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "shipBySeaForNormal" : MessageLookupByLibrary.simpleMessage("海運普貨"),
     "shipBySeaForSpecial" : MessageLookupByLibrary.simpleMessage("海運特貨"),
     "shipDescriptionBy" : m1,
+    "shipPriceDescription" : MessageLookupByLibrary.simpleMessage("一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算\n\n免費驗貨\n木架 CN\$100 起\n電視開機驗貨"),
     "shipping" : MessageLookupByLibrary.simpleMessage("運費試算"),
     "size" : MessageLookupByLibrary.simpleMessage("尺寸"),
     "sizeCm" : MessageLookupByLibrary.simpleMessage("尺寸 (cm)"),

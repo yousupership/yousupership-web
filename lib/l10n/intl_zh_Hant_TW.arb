@@ -21,5 +21,6 @@
   "shipBySeaExpressForNormal": "海快普貨",
   "shipBySeaExpressForSpecial": "海快特貨",
   "shipDescriptionBy": "{shipMethod} {shipPrice} 元/公斤，時效 {shipDurationFrom}~{shipDurationTo}天左右",
-  "weightPriceDescription": "重量計 CN${weightPrice} 材積計 CN${volumeWeightPrice} / {volumeWeight}kg"
+  "weightPriceDescription": "重量計 CN${weightPrice} 材積計 CN${volumeWeightPrice} / {volumeWeight}kg",
+  "shipPriceDescription": "一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算\n\n免費驗貨\n木架 CN$100 起\n電視開機驗貨"
 }

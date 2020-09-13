@@ -193,70 +193,70 @@ class S {
     );
   }
 
-  /// `海運普貨`
+  /// `Ship by sea for normal`
   String get shipBySeaForNormal {
     return Intl.message(
-      '海運普貨',
+      'Ship by sea for normal',
       name: 'shipBySeaForNormal',
       desc: '',
       args: [],
     );
   }
 
-  /// `海運特貨`
+  /// `Ship by sea for special`
   String get shipBySeaForSpecial {
     return Intl.message(
-      '海運特貨',
+      'Ship by sea for special',
       name: 'shipBySeaForSpecial',
       desc: '',
       args: [],
     );
   }
 
-  /// `海快普貨`
+  /// `Ship by sea express for normal`
   String get shipBySeaExpressForNormal {
     return Intl.message(
-      '海快普貨',
+      'Ship by sea express for normal',
       name: 'shipBySeaExpressForNormal',
       desc: '',
       args: [],
     );
   }
 
-  /// `海快特貨`
+  /// `Ship by sea express for special`
   String get shipBySeaExpressForSpecial {
     return Intl.message(
-      '海快特貨',
+      'Ship by sea express for special',
       name: 'shipBySeaExpressForSpecial',
       desc: '',
       args: [],
     );
   }
 
-  /// `{shipMethod} {shipPrice} 元/公斤，时效 {shipDurationFrom}~{shipDurationTo}天左右`
+  /// `{shipMethod} CN${shipPrice} / kg, takes {shipDurationFrom}~{shipDurationTo}d`
   String shipDescriptionBy(Object shipMethod, Object shipPrice, Object shipDurationFrom, Object shipDurationTo) {
     return Intl.message(
-      '$shipMethod $shipPrice 元/公斤，时效 $shipDurationFrom~$shipDurationTo天左右',
+      '$shipMethod CN\$$shipPrice / kg, takes $shipDurationFrom~${shipDurationTo}d',
       name: 'shipDescriptionBy',
       desc: '',
       args: [shipMethod, shipPrice, shipDurationFrom, shipDurationTo],
     );
   }
 
-  /// `重量計 CN${weightPrice} 材積計 CN${volumeWeightPrice} / {volumeWeight}kg`
+  /// `by weight CN${weightPrice} by volume CN${volumeWeightPrice} / {volumeWeight}kg`
   String weightPriceDescription(Object weightPrice, Object volumeWeightPrice, Object volumeWeight) {
     return Intl.message(
-      '重量計 CN\$$weightPrice 材積計 CN\$$volumeWeightPrice / ${volumeWeight}kg',
+      'by weight CN\$$weightPrice by volume CN\$$volumeWeightPrice / ${volumeWeight}kg',
       name: 'weightPriceDescription',
       desc: '',
       args: [weightPrice, volumeWeightPrice, volumeWeight],
     );
   }
 
-  /// `運送方式`
+  /// `Ship by`
   String get shipBy {
     return Intl.message(
-      '運送方式',
+      'Ship by',
       name: 'shipBy',
       desc: '',
       args: [],
@@ -293,10 +293,10 @@ class S {
     );
   }
 
-  /// `一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算`
+  /// `一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算\n\n免費驗貨\n木架 CN$100 起\n電視開機驗貨`
   String get shipPriceDescription {
     return Intl.message(
-      '一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算',
+      '一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算\n\n免費驗貨\n木架 CN\$100 起\n電視開機驗貨',
       name: 'shipPriceDescription',
       desc: '',
       args: [],

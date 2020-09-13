@@ -21,9 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(id) => "https://amos.alicdn.com/getcid.aw?uid=${id}&site=cntaobao";
 
-  static m1(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} ${shipPrice} 元/公斤，时效 ${shipDurationFrom}~${shipDurationTo}天左右";
+  static m1(shipMethod, shipPrice, shipDurationFrom, shipDurationTo) => "${shipMethod} CN\$${shipPrice} / kg, takes ${shipDurationFrom}~${shipDurationTo}d";
 
-  static m2(weightPrice, volumeWeightPrice, volumeWeight) => "重量計 CN\$${weightPrice} 材積計 CN\$${volumeWeightPrice} / ${volumeWeight}kg";
+  static m2(weightPrice, volumeWeightPrice, volumeWeight) => "by weight CN\$${weightPrice} by volume CN\$${volumeWeightPrice} / ${volumeWeight}kg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -33,17 +33,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "length" : MessageLookupByLibrary.simpleMessage("Length"),
     "price" : MessageLookupByLibrary.simpleMessage("Price"),
     "processingData" : MessageLookupByLibrary.simpleMessage("Processing Data"),
-    "shipBy" : MessageLookupByLibrary.simpleMessage("運送方式"),
+    "shipBy" : MessageLookupByLibrary.simpleMessage("Ship by"),
     "shipByAirlineExpressForNormal" : MessageLookupByLibrary.simpleMessage("Ship by airline express for normal"),
     "shipByAirlineExpressForSpecial" : MessageLookupByLibrary.simpleMessage("Ship by airline express for special"),
     "shipByAirlineForNormal" : MessageLookupByLibrary.simpleMessage("Ship by airline for normal"),
     "shipByAirlineForSpecial" : MessageLookupByLibrary.simpleMessage("Ship by airline for special"),
-    "shipBySeaExpressForNormal" : MessageLookupByLibrary.simpleMessage("海快普貨"),
-    "shipBySeaExpressForSpecial" : MessageLookupByLibrary.simpleMessage("海快特貨"),
-    "shipBySeaForNormal" : MessageLookupByLibrary.simpleMessage("海運普貨"),
-    "shipBySeaForSpecial" : MessageLookupByLibrary.simpleMessage("海運特貨"),
+    "shipBySeaExpressForNormal" : MessageLookupByLibrary.simpleMessage("Ship by sea express for normal"),
+    "shipBySeaExpressForSpecial" : MessageLookupByLibrary.simpleMessage("Ship by sea express for special"),
+    "shipBySeaForNormal" : MessageLookupByLibrary.simpleMessage("Ship by sea for normal"),
+    "shipBySeaForSpecial" : MessageLookupByLibrary.simpleMessage("Ship by sea for special"),
     "shipDescriptionBy" : m1,
-    "shipPriceDescription" : MessageLookupByLibrary.simpleMessage("一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算"),
+    "shipPriceDescription" : MessageLookupByLibrary.simpleMessage("一般如果尺寸不是很大的，都会按实际重量计算約莫大于1米以上的大货物，如果材积大于重量的会按材积算\n\n免費驗貨\n木架 CN\$100 起\n電視開機驗貨"),
     "shipping" : MessageLookupByLibrary.simpleMessage("Shipping"),
     "size" : MessageLookupByLibrary.simpleMessage("Size"),
     "sizeCm" : MessageLookupByLibrary.simpleMessage("Size (cm)"),
