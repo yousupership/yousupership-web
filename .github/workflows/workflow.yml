@@ -19,7 +19,7 @@ jobs:
     - name: Build Web
       run: flutter build web --release
     - name: Enable Selection
-      run: flutter pub run scripts/enable_selection.dart || true
+      run: flutter pub run lib/scripts/enable_selection.dart || true
     - name: Deploy
       run: |
         cd build/web
